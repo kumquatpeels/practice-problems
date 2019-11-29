@@ -35,6 +35,29 @@ function getMinMaxMean(arr){
   return answer;
 }
 
-function findMode(){
-
+function findMode(arr){
+//loop through array
+  //compare first number to rest of numbers
+    //store number of matches in answerObj
+  //compare second number to rest of numbers
+    //store  number of matches in answerObj = {0:??, 1:??,2:??}
+//after loop is complete, and all numbers are compared
+//take largest value of answerObj, and pull the corresponding
+  //property, which should be the index of the original arr
+  var answersObj = {};
+  var answersArr = [];
+  var match=0;
+  for (var i=0; i<arr.length-1; i++) {
+    for (var j=i+1; j<arr.length; j++) {
+      if (arr[i] == arr[j]) {
+        match++;
+        answersObj[i] = match;
+      }
+    }
+  }
+  for (i in answersObj) {
+    answersArr.push(i);
+  }
+  var max = Math.max(...answersArr);
+  return arr[max];
 }
